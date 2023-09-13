@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 autoload -U colors && colors
+setopt prompt_subst
 
 __git_info() {
     hash git 2>/dev/null || return # git not found
