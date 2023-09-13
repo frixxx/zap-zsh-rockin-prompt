@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 autoload -U colors && colors
+precmd_vcs_info() { __git_info }
+precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
 __git_info() {
