@@ -4,6 +4,8 @@ autoload -U colors && colors
 precmd_functions+=( __git_info )
 setopt prompt_subst
 
+__VCS_INFO=""
+
 __git_info() {
     hash git 2>/dev/null || return # git not found
     LANG=C
@@ -43,7 +45,7 @@ __git_info() {
     echo "update"
 
     # print the git branch segment without a trailing newline
-    export __VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
+    __VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
 }
 
 echo "$__VCS_INFO"
