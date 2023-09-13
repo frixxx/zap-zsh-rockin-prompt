@@ -45,6 +45,7 @@ __git_info() {
 
     # print the git branch segment without a trailing newline
     VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
+    echo "$VCS_INFO"
 }
 
 NEXTLINE=$'\n'
