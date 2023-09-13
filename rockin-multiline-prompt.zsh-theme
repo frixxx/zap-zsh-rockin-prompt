@@ -41,6 +41,8 @@ __git_info() {
       marks=" $fg[yellow]*$i$marks"
     fi
 
+    echo "update"
+
     # print the git branch segment without a trailing newline
     VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
 }
