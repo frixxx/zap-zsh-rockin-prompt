@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 autoload -U colors && colors
-precmd_vcs_info() { __git_info }
-precmd_functions+=( precmd_vcs_info )
+precmd_functions+=( __git_info )
 setopt prompt_subst
 
 __git_info() {
@@ -45,8 +44,9 @@ __git_info() {
 
     # print the git branch segment without a trailing newline
     export __VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
-    echo "$__VCS_INFO"
 }
+
+echo "$__VCS_INFO"
 
 NEXTLINE=$'\n'
 
