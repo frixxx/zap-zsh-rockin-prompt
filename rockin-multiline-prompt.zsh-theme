@@ -42,5 +42,7 @@ __git_info() {
     printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color"
 }
 
+NEXTLINE=$'\n'
+
 PROMPT="%(?:🤘🏻 :🖕🏻 )% %{$fg[cyan]%}%~%{$reset_color%}"
-PROMPT+="$(__git_info) "$'\n'" ↳ "
+PROMPT+="$(__git_info) $NEXTLINE ↳ "
