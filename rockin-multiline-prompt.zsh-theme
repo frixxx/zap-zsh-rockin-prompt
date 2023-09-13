@@ -44,5 +44,4 @@ __git_info() {
 
 NEXTLINE=$'\n'
 
-PROMPT="%(?:🤘🏻 :🖕🏻 )% %{$fg[cyan]%}%~%{$reset_color%}"
-PROMPT+="$(__git_info) $NEXTLINE ↳ "
+PROMPT="%(?:🤘🏻 :🖕🏻 )% %{$fg[cyan]%}%~%{$reset_color%}$(__git_info) $NEXTLINE ↳ "
