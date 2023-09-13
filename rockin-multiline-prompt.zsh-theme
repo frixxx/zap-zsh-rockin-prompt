@@ -44,10 +44,10 @@ __git_info() {
     echo "update"
 
     # print the git branch segment without a trailing newline
-    VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
-    echo "$VCS_INFO"
+    export __VCS_INFO=$(printf " $fg[blue]($reset_color$ref$marks$fg[blue])$reset_color")
+    echo "$__VCS_INFO"
 }
 
 NEXTLINE=$'\n'
 
-export PROMPT="%(?:🤘🏻 :🖕🏻 )% %{$fg[cyan]%}%~%{$reset_color%}$VCS_INFO $NEXTLINE ↳ "
+PROMPT="%(?:🤘🏻 :🖕🏻 )% %{$fg[cyan]%}%~%{$reset_color%}$__VCS_INFO $NEXTLINE ↳ "
