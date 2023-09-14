@@ -3,7 +3,6 @@
 autoload -Uz vcs_info
 autoload -U colors && colors
 
-echo "#$RMP_ICON_BRANCH#"
 [[ -z "${RMP_ICON_BRANCH}" ]] && RMP_ICON_BRANCH=""
 [[ -z "${RMP_ICON_COMMIT}" ]] && RMP_ICON_COMMIT=""
 [[ -z "${RMP_ICON_CHANGES}" ]] && RMP_ICON_CHANGES="*"
