@@ -68,4 +68,4 @@ function +vi-git-stash() {
 }
 
 PROMPT="%(?:🤘🏻 :🖕🏻 )% %{$fg[cyan]%}%~%{$reset_color%}"
-PROMPT+=" $vcs_info_msg_0_ "$'\n'" ↳ "
+PROMPT+="\$vcs_info_msg_0_ "$'\n'" ↳ "
