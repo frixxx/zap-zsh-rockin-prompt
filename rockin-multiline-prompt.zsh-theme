@@ -21,7 +21,7 @@ zstyle ':vcs_info:git*:*' get-revision true
 zstyle ':vcs_info:git*:*' check-for-changes true
 
 # hash changes branch misc
-zstyle ':vcs_info:git*' formats "$fg[blue]($reset_color%b%m$fg[blue])$reset_color"
+zstyle ':vcs_info:git*' formats " $fg[blue]($reset_color%b%m$fg[blue])$reset_color"
 zstyle ':vcs_info:git*' actionformats "(%s|%a) %12.12i %c%u %b%m"
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
