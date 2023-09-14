@@ -3,6 +3,14 @@
 autoload -Uz vcs_info
 autoload -U colors && colors
 
+echo "#$RMP_ICON_BRANCH#"
+[[ -z "${RMP_ICON_BRANCH}" ]] && RMP_ICON_BRANCH=""
+[[ -z "${RMP_ICON_COMMIT}" ]] && RMP_ICON_COMMIT=""
+[[ -z "${RMP_ICON_CHANGES}" ]] && RMP_ICON_CHANGES="*"
+[[ -z "${RMP_ICON_AHEAD}" ]] && RMP_ICON_AHEAD=""
+[[ -z "${RMP_ICON_BEHIND}" ]] && RMP_ICON_BEHIND=""
+[[ -z "${RMP_ICON_STASH}" ]] && RMP_ICON_STASH=""
+
 setopt prompt_subst
 
 precmd() {
@@ -28,10 +36,10 @@ function +vi-git-st() {
 
     if [[ -n "$ref" ]]; then
         # prepend branch symbol
-        ref="$fg[yellow]$fg[magenta]"$ref
+        ref="$fg[yellow]$RMP_ICON_BRANCH$fg[magenta]"$ref
     else
         # get tag name or short unique hash @TODO: Testen
-        ref="$fg[yellow]$fg[magenta]"$(git describe --tags --always 2>/dev/null)
+        ref="$fg[yellow]$RMP_ICON_COMMIT$fg[magenta]"$(git describe --tags --always 2>/dev/null)
     fi
 
     [[ -n "$ref" ]] || return
@@ -48,9 +56,9 @@ function +vi-git-st() {
         fi
     done < <(git status --porcelain --branch 2>/dev/null)  # note the space between the two <
 
-    [[ "$changes" != "0" ]] && gitstatus+=( "$fg[yellow]*$changes$reset_color" )
-    [[ "$ahead" != "" ]] && gitstatus+=( "$fg[yellow]$ahead$reset_color" )
-    [[ "$behind" != "" ]] && gitstatus+=( "$fg[yellow]$behind$reset_color" )
+    [[ "$changes" != "0" ]] && gitstatus+=( "$fg[yellow]$RMP_ICON_CHANGES$changes$reset_color" )
+    [[ "$ahead" != "" ]] && gitstatus+=( "$fg[yellow]$RMP_ICON_AHEAD$ahead$reset_color" )
+    [[ "$behind" != "" ]] && gitstatus+=( "$fg[yellow]$RMP_ICON_BEHIND$behind$reset_color" )
 
     hook_com[branch]="${(j: :)gitstatus}"
 }
@@ -62,7 +70,7 @@ function +vi-git-stash() {
     if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
         stashes=$(git stash list 2>/dev/null | wc -l)
         stashes="$((stashes * 1))" # remove whitespace
-        hook_com[misc]+=" $fg[yellow]${stashes}$reset_color"
+        hook_com[misc]+=" $fg[yellow]RMP_ICON_STASH${stashes}$reset_color"
     fi
 }
 
