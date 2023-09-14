@@ -32,7 +32,7 @@ function +vi-git-st() {
     else
         # get tag name or short unique hash @TODO: Testen
         ref=$(git describe --tags --always 2>/dev/null)
-        [[ $ref =~ (.*)\-g(.*) ]] && ref="$fg[yellow]$fg[magenta]"${match[2]}
+        ref="$fg[yellow]$fg[magenta]$ref"
     fi
 
     [[ -n "$ref" ]] || return
