@@ -3,7 +3,7 @@
 autoload -Uz vcs_info
 autoload -U colors && colors
 PLUGIN_DIRECTORY=${0:A:h}
-source $PLUGIN_DIRECTORY/../lib/functions.zsh
+source $PLUGIN_DIRECTORY/lib/functions.zsh
 
 [[ -z "${RMP_ICON_BRANCH}" ]] && RMP_ICON_BRANCH=""
 [[ -z "${RMP_ICON_COMMIT}" ]] && RMP_ICON_COMMIT=""
