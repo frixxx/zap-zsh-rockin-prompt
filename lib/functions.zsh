@@ -41,6 +41,6 @@ function +vi-git-stash() {
     if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
         stashes=$(git stash list 2>/dev/null | wc -l)
         stashes="$((stashes * 1))" # remove whitespace
-        hook_com[misc]+=" $fg[yellow]RMP_ICON_STASH${stashes}$reset_color"
+        hook_com[misc]+=" $fg[yellow]$RMP_ICON_STASH${stashes}$reset_color"
     fi
 }
