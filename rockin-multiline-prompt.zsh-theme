@@ -33,6 +33,6 @@ if [[ -z "${RMP_SERVER_MODE}" ]]; then
     PROMPT="🤘 %{$fg[cyan]%}%~%{$reset_color%}"
     PROMPT+="\$vcs_info_msg_0_ "$'\n'" ↳ "
 else 
-    PROMPT="🤘 %{$fg[cyan]%}%${USER}@${HOSTNAME}:%{$fg[cyan]%}%~%{$reset_color%}"
+    PROMPT="🤘 %{$fg[cyan]%}${USER}@${HOSTNAME}:%{$fg[cyan]%}%~%{$reset_color%}"
     PROMPT+="\$vcs_info_msg_0_ "$'\n'" ↳ "
 fi
