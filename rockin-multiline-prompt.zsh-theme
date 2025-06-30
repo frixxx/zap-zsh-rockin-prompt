@@ -12,7 +12,7 @@ source $PLUGIN_DIRECTORY/lib/functions.zsh
 [[ -z "${RMP_ICON_BEHIND}" ]] && RMP_ICON_BEHIND=""
 [[ -z "${RMP_ICON_STASH}" ]] && RMP_ICON_STASH="≡"
 
-HOSTNAME=`hostname`
+HOSTNAME=`hostname --fqdn`
 USER=`whoami`
 
 setopt prompt_subst
