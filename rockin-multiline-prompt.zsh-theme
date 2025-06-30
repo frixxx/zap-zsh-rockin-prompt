@@ -12,6 +12,9 @@ source $PLUGIN_DIRECTORY/lib/functions.zsh
 [[ -z "${RMP_ICON_BEHIND}" ]] && RMP_ICON_BEHIND=""
 [[ -z "${RMP_ICON_STASH}" ]] && RMP_ICON_STASH="≡"
 
+HOSTNAME=`hostname`
+USER=`whoami`
+
 setopt prompt_subst
 
 precmd() {
@@ -25,5 +28,11 @@ zstyle ':vcs_info:git*' formats " $fg[blue]($reset_color%b%m$fg[blue])$reset_col
 zstyle ':vcs_info:git*' actionformats "(%s|%a) %12.12i %c%u %b%m"
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
-PROMPT="🤘 %{$fg[cyan]%}%~%{$reset_color%}"
-PROMPT+="\$vcs_info_msg_0_ "$'\n'" ↳ "
+
+if [[ -z "${RMP_SERVER_MODE}" ]]; then
+    PROMPT="🤘 %{$fg[cyan]%}%~%{$reset_color%}"
+    PROMPT+="\$vcs_info_msg_0_ "$'\n'" ↳ "
+else 
+    PROMPT="🤘 %{$fg[cyan]%}%${USER}@${HOSTNAME}:%{$fg[cyan]%}%~%{$reset_color%}"
+    PROMPT+="\$vcs_info_msg_0_ "$'\n'" ↳ "
+fi
