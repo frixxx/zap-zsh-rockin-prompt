@@ -47,7 +47,6 @@ function +vi-git-stash() {
 
 function extendPATHEnvironmentVariable() {
   for cliPath in "${CLI_BINARY_PATHS[@]}"; do
-    echo "${cliPath}"
     if [[ -d $cliPath ]]; then
       export PATH="$cliPath:$PATH"
     fi
