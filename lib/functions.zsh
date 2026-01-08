@@ -46,7 +46,7 @@ function +vi-git-stash() {
 }
 
 function extendPATHEnvironmentVariable() {
-  dirs=( "$@" )
+  dirs=( $@ )
   echo="dirs: ${dirs}"
   for cliPath in "${dirs[@]}"; do
     echo "${cliPath}"
