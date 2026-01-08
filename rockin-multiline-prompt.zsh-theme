@@ -18,7 +18,7 @@ CLI_BINARY_PATHS="${ROCKIN_MULTILINE_PROMPT___CLI_BINARY_PATHS:-}"
 [[ -z "${RMP_ICON_STASH}" ]] && RMP_ICON_STASH="≡"
 
 ##### Configure Prompt #####
-HOSTNAME=`hostname`
+HOSTNAME=`hostname --fqdn`
 USER=`whoami`
 
 setopt prompt_subst
