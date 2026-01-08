@@ -7,6 +7,9 @@ source $PLUGIN_DIRECTORY/lib/functions.zsh
 CONFIG_DIRECTORY="${HOME}/.config/fx/rockin-multiline-prompt"
 ALIAS_FILE="${CONFIG_DIRECTORY}/aliases"
 ENV_FILE="${CONFIG_DIRECTORY}/.env"
+echo "CONFIG_DIRECTORY: ${CONFIG_DIRECTORY}"
+echo "ALIAS_FILE: ${ALIAS_FILE}"
+echo "ENV_FILE: ${ENV_FILE}"
 [[ -f "${ENV_FILE}" ]] && source "${ENV_FILE}"
 CLI_BINARY_PATHS="${ROCKIN_MULTILINE_PROMPT___CLI_BINARY_PATHS:-}"
 
@@ -18,7 +21,7 @@ CLI_BINARY_PATHS="${ROCKIN_MULTILINE_PROMPT___CLI_BINARY_PATHS:-}"
 [[ -z "${RMP_ICON_STASH}" ]] && RMP_ICON_STASH="≡"
 
 ##### Configure Prompt #####
-HOSTNAME=`hostname --fqdn`
+HOSTNAME=`hostname`
 USER=`whoami`
 
 setopt prompt_subst
@@ -49,6 +52,8 @@ bindkey '^[[B' history-substring-search-down
 
 ##### Load Aliases #####
 [[ -f "${ALIAS_FILE}" ]] && source "${ALIAS_FILE}"
+which cat
+echo $PATH
 
 ##### Expand Application Paths
 extendPATHEnvironmentVariable ${CLI_BINARY_PATHS}
