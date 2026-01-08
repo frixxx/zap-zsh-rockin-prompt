@@ -56,4 +56,5 @@ which cat
 echo $PATH
 
 ##### Expand Application Paths
+echo "CLI_BINARY_PATHS: ${CLI_BINARY_PATHS}"
 extendPATHEnvironmentVariable ${CLI_BINARY_PATHS}
