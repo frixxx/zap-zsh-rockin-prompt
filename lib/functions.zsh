@@ -44,3 +44,14 @@ function +vi-git-stash() {
         hook_com[misc]+=" $fg[yellow]$RMP_ICON_STASH${stashes}$reset_color"
     fi
 }
+
+function extendPATHEnvironmentVariable() {
+
+  dirs=( "$@" )
+  for cliPath in "${dirs[@]}"; do
+    if [[ -d $cliPath ]]; then
+      export PATH="$cliPath:$PATH"
+    fi
+  done
+
+}
