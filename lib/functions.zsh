@@ -49,6 +49,7 @@ function extendPATHEnvironmentVariable() {
 
   dirs=( "$@" )
   for cliPath in "${dirs[@]}"; do
+    echo "${cliPath}"
     if [[ -d $cliPath ]]; then
       export PATH="$cliPath:$PATH"
     fi
