@@ -51,4 +51,4 @@ bindkey '^[[B' history-substring-search-down
 [[ -f "${ALIAS_FILE}" ]] && source "${ALIAS_FILE}"
 
 ##### Expand Application Paths
-extendPATHEnvironmentVariable ${CLI_BINARY_PATHS}
+extendPATHEnvironmentVariable $CLI_BINARY_PATHS
